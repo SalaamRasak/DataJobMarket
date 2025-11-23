@@ -59,7 +59,7 @@ plt.show()
 
 ### Results
 
-<img src="/Images/most_posted_jobs.png" alt="Top 3 posted jobs in the US" width="400">
+<img src="/Images/most_posted_jobs.png" alt="Top 3 posted jobs in the US" width="600">
 
 ![Top 3 posted jobs in the US](/Images/most_posted_jobs.png)
 
