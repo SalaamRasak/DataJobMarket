@@ -4,9 +4,8 @@ Welcome to my analysis of the data job market project. This project was created 
 # The Questions
 Below are the questions I answered in my project:
 1. What are the top three jobs posted in the United State monthly?
-3. What are the salary distributions of Data Analyst, Data Engineer, and Data Scientist in the United States?
-4. How well do jobs and skills pay for Data Analysts?
-5. What are the optimal skills for data analysts to learn? (High Demand AND High Paying) 
+2. What are the salary distributions of Data Analyst, Data Engineer, and Data Scientist in the United States?
+3. What is the number of jobs posted in the first quarter? 
 
 # Tools I Used
 - **Python:** The backbone of my analysis, allowing me to analyze the data and find critical insights. I also used the following Python libraries:
