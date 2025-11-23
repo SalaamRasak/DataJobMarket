@@ -4,8 +4,7 @@ Welcome to my analysis of the data job market project. This project was created 
 # The Questions
 Below are the questions I answered in my project:
 1. What are the top three jobs posted in the United State monthly?
-2. What are the skills most in demand for the top 3 most popular data roles?
-3. How are in-demand skills trending for Data Analysts?
+3. What are the salary distributions of Data Analyst, Data Engineer, and Data Scientist in the United States?
 4. How well do jobs and skills pay for Data Analysts?
 5. What are the optimal skills for data analysts to learn? (High Demand AND High Paying) 
 
@@ -61,33 +60,29 @@ plt.show()
 
 <img src="/Images/most_posted_jobs.png" alt="Top 3 posted jobs in the US" width="600">
 
-![Top 3 posted jobs in the US](/Images/most_posted_jobs.png)
+## 2. What are the salary distributions of Data Analyst, Data Engineer, and Data Scientist in the United States?
 
-## 2. How are in-demand skills trending for Data Analysts?
-
-To find how skills are trending in 2023 for Data Analysts, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data analysts by month, showing how popular skills were throughout 2023.
-
-View my notebook with detailed steps here: [3_Skills_Trend](3_Skills_Trend.ipynb).
+To find the salary distributions of data analyst, data engineer, and data scientist in the United States, I skills are trending in 2023 for Data Analysts, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data analysts by month, showing how popular skills were throughout 2023.
 
 ### Visualize Data
 
 ```python
-
-from matplotlib.ticker import PercentFormatter
-
-df_plot = df_DA_US_percent.iloc[:, :5]
-sns.lineplot(data=df_plot, dashes=False, legend='full', palette='tab10')
-
-plt.gca().yaxis.set_major_formatter(PercentFormatter(decimals=0))
-
+job_titles = ['Data Analyst', 'Data Engineer', 'Data Scientist']
+df_US = df[(df['job_title_short'].isin(job_titles)) & (df['job_country'] == 'United States')].copy()
+df_US = df_US.dropna(subset=['salary_year_avg'])
+job_list = [df_US[df_US['job_title_short']== job_title]['salary_year_avg'] for job_title in job_titles]
+plt.figure(figsize=(8, 6))
+sns.boxplot(data=df_US, x='salary_year_avg', y='job_title_short', order=job_titles)
+plt.title('Salary Distribution in the United States')
+plt.xlabel('Yearly Salary ($USD)')
+plt.ylabel('')
+ax = plt.gca() 
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f'${int(y/1000)}K'))
 plt.show()
-
 ```
 
 ### Results
-
-![Trending Top Skills for Data Analysts in the US](images/Trending_Top_Skills_for_Data_Analysts_in_the_US.png)  
-*Bar graph visualizing the trending top skills for data analysts in the US in 2023.*
+<img src="/Images/Salary Distributions.png" alt="Salary Distributions of Data Analyst, Data Engineer, and Data Scientist in the US" width="600">
 
 ### Insights:
 - SQL remains the most consistently demanded skill throughout the year, although it shows a gradual decrease in demand.
