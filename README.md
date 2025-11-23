@@ -1,7 +1,5 @@
 # Overview
-Welcome to my analysis of the data job market project, focusing on data analyst roles. This project was created out of a desire to navigate and understand the job market more effectively. It delves into the top-paying and in-demand skills.
-
-Through a series of Python scripts, I explore key questions such as the most demanded skills, salary trends, and the intersection of demand and salary in data analytics.
+Welcome to my analysis of the data job market project. This project was created out of a desire to navigate and understand the job market more effectively. It delves into the most available jobs and in-demand skills. Through a series of Python scripts, I explored key questions, such as the most demanded skills, available data jobs, salary trends, among others.
 
 # The Questions
 Below are the questions I answered in my project:
@@ -51,8 +49,6 @@ df_US = df[df['job_country'] == 'United States']
 
 To find the top three posted jobs in the United States, I filtered out those jobs posted in the US, and got the top 3 jobs. This query highlights the most popular jobs, showing which skills I should pay attention to depending on the role I'm targeting. 
 
-### Visualize Data
-
 ```python
 df_US_pivot[top_three].plot(kind='line', linewidth=3, linestyle=':', colormap='viridis') #---,::,--
 plt.xlabel('Job Posted by Months')
@@ -62,6 +58,8 @@ plt.show()
 ```
 
 ### Results
+
+<img src="/Images/most_posted_jobs.png" alt="Top 3 posted jobs in the US" width="400">
 
 ![Top 3 posted jobs in the US](/Images/most_posted_jobs.png)
 
