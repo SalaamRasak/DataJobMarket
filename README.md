@@ -46,7 +46,7 @@ df_US = df[df['job_country'] == 'United States']
 ## 1. What are the top three jobs posted in the United State monthly?
 
 ```python
-df_US_pivot[top_three].plot(kind='line', linewidth=3, linestyle=':', colormap='viridis') #---,::,--
+df_US_pivot[top_three].plot(kind='line', linewidth=3, linestyle=':', colormap='viridis') 
 plt.xlabel('Job Posted by Months')
 plt.ylabel('Number of Jobs Posted')
 plt.title('Top Three Most Posted Jobs in the US by Months')
