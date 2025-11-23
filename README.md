@@ -35,8 +35,7 @@ df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.no
 ```
 
 ## Filter US Jobs
-
-To focus my analysis on the U.S. job market, I apply filters to the dataset, narrowing down to roles based in the United States.
+To focus my analysis on the U.S. job market, I applied filters to the dataset, narrowing down to roles based in the United States.
 
 ```python
 df_US = df[df['job_country'] == 'United States']
@@ -45,8 +44,6 @@ df_US = df[df['job_country'] == 'United States']
 
 # The Analysis
 ## 1. What are the top three jobs posted in the United State monthly?
-
-To find the top three posted jobs in the United States, I filtered out those jobs posted in the US, and got the top 3 jobs. This query highlights the most popular jobs, showing which skills I should pay attention to depending on the role I'm targeting. 
 
 ```python
 df_US_pivot[top_three].plot(kind='line', linewidth=3, linestyle=':', colormap='viridis') #---,::,--
@@ -60,11 +57,10 @@ plt.show()
 
 <img src="/Images/most_posted_jobs.png" alt="Top 3 posted jobs in the US" width="600">
 
+### Insight:
+- Data Analyst has the highest number of jobs posted, while Data Engineer has the least number of jobs posted. 
+
 ## 2. What are the salary distributions of Data Analyst, Data Engineer, and Data Scientist in the United States?
-
-To find the salary distributions of data analyst, data engineer, and data scientist in the United States, I skills are trending in 2023 for Data Analysts, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data analysts by month, showing how popular skills were throughout 2023.
-
-### Visualize Data
 
 ```python
 job_titles = ['Data Analyst', 'Data Engineer', 'Data Scientist']
@@ -80,14 +76,11 @@ ax = plt.gca()
 ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f'${int(y/1000)}K'))
 plt.show()
 ```
-
 ### Results
 <img src="/Images/Salary Distributions.png" alt="Salary Distributions of Data Analyst, Data Engineer, and Data Scientist in the US" width="600">
 
-### Insights:
-- SQL remains the most consistently demanded skill throughout the year, although it shows a gradual decrease in demand.
-- Excel experienced a significant increase in demand starting around September, surpassing both Python and Tableau by the end of the year.
-- Both Python and Tableau show relatively stable demand throughout the year with some fluctuations but remain essential skills for data analysts. Power BI, while less demanded compared to the others, shows a slight upward trend towards the year's end.
+### Insight:
+- Data Scientist appears to have the highest average salary in the US, while Data Analyst has the least average salary. 
 
 ## 3. How well do jobs and skills pay for Data Analysts?
 
